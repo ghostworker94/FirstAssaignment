@@ -7,10 +7,15 @@ type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
 export function HomeScreen({ navigation }: HomeScreenProps) {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <Button
+      <Text style={styles.textContainer}>Welcome👽</Text>
+      {/* <Button
         title="Details"
         onPress={() => navigation.navigate("Details", { id: "1" })}
+      /> */}
+      <Button title="Battery" onPress={() => navigation.navigate("Battery")} />
+      <Button
+        title="Device Info"
+        onPress={() => navigation.navigate("DeviceInfo")}
       />
     </View>
   );
@@ -22,5 +27,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    gap: 15,
+  },
+  textContainer: {
+    marginTop: 15,
+    fontSize: 20,
   },
 });
