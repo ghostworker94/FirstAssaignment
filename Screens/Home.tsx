@@ -8,7 +8,10 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
-      <Button title="Details" onPress={() => navigation.navigate("Details")} />
+      <Button
+        title="Details"
+        onPress={() => navigation.navigate("Details", { id: "1" })}
+      />
     </View>
   );
 }

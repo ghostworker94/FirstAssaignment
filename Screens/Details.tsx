@@ -1,9 +1,14 @@
-import { StatusBar, View, Text, StyleSheet } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { StyleSheet, Text, View } from "react-native";
+import { RootStackParamList } from "../App";
 
-export function DetailsScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, "Details">;
+
+export function DetailsScreen({ route }: Props) {
   return (
     <View style={styles.container}>
-      <Text>Details Screen</Text>
+      <Text>{route.name} Screen</Text>
+      <Text>Id: {route.params.id}</Text>
     </View>
   );
 }
