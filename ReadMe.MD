@@ -42,6 +42,7 @@ safe-area-context
 screens
 expo-linking
 masked-view
+expo-contacts
 
 Använda RN-Componenter:
 View
