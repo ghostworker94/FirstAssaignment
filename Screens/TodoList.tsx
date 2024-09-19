@@ -12,22 +12,22 @@ import {
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-type ItemData = {
+type TodoItem = {
   id: string;
   title: string;
   date: Date;
 };
 
-const getItem = (data: ItemData[], index: number): ItemData => data[index];
+const getItem = (data: TodoItem[], index: number): TodoItem => data[index];
 
-const getItemCount = (data: ItemData[]) => data.length;
+const getItemCount = (data: TodoItem[]) => data.length;
 
-type ItemProps = {
+type TodoProps = {
   title: string;
   date: Date;
 };
 
-const Item = ({ title, date }: ItemProps) => (
+const Item = ({ title, date }: TodoProps) => (
   <View style={styles.item}>
     <Text style={styles.title}>{title}</Text>
     <Text style={styles.date}>{date.toLocaleString()}</Text>
@@ -35,7 +35,7 @@ const Item = ({ title, date }: ItemProps) => (
 );
 
 export const TodoList = () => {
-  const [todos, setTodos] = useState<ItemData[]>([]);
+  const [todos, setTodos] = useState<TodoItem[]>([]);
   const [text, onChangeText] = useState('');
   const [date, setDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
@@ -75,15 +75,19 @@ export const TodoList = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+            <Text style={styles.selectedDate}>
+        Selected Date and Time: {date.toLocaleString()}
+      </Text>
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
         value={text}
         placeholder="Add todo"
       />
-      <View>
+      <View style={styles.container}>
         <Button onPress={() => setShowDatePicker(true)} title="Pick Date" />
         <Button onPress={() => setShowTimePicker(true)} title="Pick Time" />
+        <Button title="Add Todo" onPress={handleAddTodo} />
       </View>
       {showDatePicker && (
         <DateTimePicker
@@ -101,10 +105,7 @@ export const TodoList = () => {
           onChange={onChangeTime}
         />
       )}
-      <Text style={styles.selectedDate}>
-        Selected Date and Time: {date.toLocaleString()}
-      </Text>
-      <Button title="Add Todo" onPress={handleAddTodo} />
+
       <VirtualizedList
         data={todos}
         initialNumToRender={4}
@@ -121,9 +122,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight,
+    gap: 5,
+    padding: 20,
   },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: 'gray',
     height: 150,
     justifyContent: 'center',
     marginVertical: 8,
@@ -132,10 +135,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
+    color: 'white',
   },
   date: {
     fontSize: 16,
-    color: '#888',
+    color: 'white',
   },
   input: {
     height: 40,
