@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Button } from 'react-native';
+import { View, Button } from 'react-native';
 import * as Linking from 'expo-linking';
 
 export default function CallARandom() {

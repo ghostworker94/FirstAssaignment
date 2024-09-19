@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Button, StatusBar, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import { RootStackParamList } from "../App";
-import CallARandom from "../Components/CallARandom";
+import CallARandom from "./CallARandom";
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
 

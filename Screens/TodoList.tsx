@@ -8,7 +8,7 @@ import {
   StatusBar,
   TextInput,
   Button,
-  Platform,
+  ScrollView,
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
@@ -42,7 +42,7 @@ export const TodoList = () => {
   const [showTimePicker, setShowTimePicker] = useState(false);
 
   const addTodo = (title: string, date: Date) => {
-    const newTodo = { id: Math.random().toString(12).substring(0), title, date };
+    const newTodo = { id: (todos.length + 1).toString(), title, date };
     setTodos([...todos, newTodo]);
   };
 
@@ -75,45 +75,47 @@ export const TodoList = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-            <Text style={styles.selectedDate}>
-        Selected Date and Time: {date.toLocaleString()}
-      </Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-        placeholder="Add todo"
-      />
-      <View style={styles.container}>
-        <Button onPress={() => setShowDatePicker(true)} title="Pick Date" />
-        <Button onPress={() => setShowTimePicker(true)} title="Pick Time" />
-        <Button title="Add Todo" onPress={handleAddTodo} />
-      </View>
-      {showDatePicker && (
-        <DateTimePicker
-          value={date}
-          mode="date"
-          display="default"
-          onChange={onChangeDate}
+      <ScrollView >
+        <Text style={styles.selectedDate}>
+          Selected Date and Time: {date.toLocaleString()}
+        </Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeText}
+          value={text}
+          placeholder="Add todo"
         />
-      )}
-      {showTimePicker && (
-        <DateTimePicker
-          value={date}
-          mode="time"
-          display="default"
-          onChange={onChangeTime}
-        />
-      )}
-
-      <VirtualizedList
-        data={todos}
-        initialNumToRender={4}
-        renderItem={({ item }) => <Item title={item.title} date={item.date} />}
-        keyExtractor={item => item.id}
-        getItemCount={getItemCount}
-        getItem={getItem}
-      />
+        <View style={styles.container}>
+          <Button onPress={() => setShowDatePicker(true)} title="Pick Date" />
+          <Button onPress={() => setShowTimePicker(true)} title="Pick Time" />
+          <Button title="Add Todo" onPress={handleAddTodo} />
+        </View>
+        {showDatePicker && (
+          <DateTimePicker
+            value={date}
+            mode="date"
+            display="default"
+            onChange={onChangeDate}
+          />
+        )}
+        {showTimePicker && (
+          <DateTimePicker
+            value={date}
+            mode="time"
+            display="default"
+            onChange={onChangeTime}
+          />
+        )}
+        
+        <VirtualizedList
+          data={todos}
+          initialNumToRender={4}
+          renderItem={({ item }) => <Item title={item.title} date={item.date} />}
+          keyExtractor={item => item.id}
+          getItemCount={getItemCount}
+          getItem={getItem}
+          />
+        </ScrollView >
     </SafeAreaView>
   );
 };

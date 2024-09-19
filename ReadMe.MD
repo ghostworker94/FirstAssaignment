@@ -23,12 +23,35 @@ För att starta projectet:
 
 Projektets titel:
 
-### First native experiance
+#### First native experiance
 
 Beskrivning:
 Appen kan visa ditt batteri och model. Det finns en film som beskriver vad React native är. Slutligen en todo lista där man kan lägga till sina todos.
 
-## Presentation
+Använda Expo -componenter:
+
+datetimepicker
+react-navigation/native
+react-navigation/native-stack
+expo-battery
+expo-device
+expo-status-bar
+expo-video
+expo-av
+safe-area-context
+screens
+expo-linking
+masked-view
+
+Använda RN-Componenter:
+View
+Button
+SafeAreaView
+TextInput
+VirtualizedList
+ScrollView
+
+- ## Presentation
 
 Du ska i samband med inlämning hålla i en presentation där du för klassen presenterar
 din applikation, vilka komponenter du har använt och kort beskriva vad dom används till
