@@ -4,6 +4,7 @@ import { RootStackParamList } from "../App";
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
 
+
 export function HomeScreen({ navigation }: HomeScreenProps) {
   return (
     <View style={styles.container}>
@@ -18,6 +19,7 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
         onPress={() => navigation.navigate("DeviceInfo")}
       />
       <Button title="Video" onPress={() => navigation.navigate("Video")} />
+      <Button title="Add Todo" onPress={() => navigation.navigate("Todo")}/>
     </View>
   );
 }

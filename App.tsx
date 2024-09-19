@@ -1,12 +1,12 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { DetailsScreen } from "./Screens/Details";
-import { HomeScreen } from "./Screens/Home";
-import BatteryScreen from "./Screens/BatteryScreen";
-import DeviceInfo from "./Screens/DeviceInfoScreen";
-import VideoScreen from "./Screens/VideoScreen";
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StatusBar } from 'expo-status-bar';
+import {HomeScreen} from './Screens/Home';
+import BatteryScreen from './Screens/BatteryScreen';
+import DeviceInfo from './Screens/DeviceInfoScreen';
+import VideoScreen from './Screens/VideoScreen';
+import {TodoList} from './Screens/TodoList';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -14,6 +14,7 @@ export type RootStackParamList = {
   Battery: undefined;
   DeviceInfo: undefined;
   Video: undefined;
+  Todo: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -28,6 +29,7 @@ export default function App() {
         <RootStack.Screen name="Battery" component={BatteryScreen} />
         <RootStack.Screen name="DeviceInfo" component={DeviceInfo} />
         <RootStack.Screen name="Video" component={VideoScreen} />
+        <RootStack.Screen name="Todo" component={TodoList} />
       </RootStack.Navigator>
     </NavigationContainer>
   );

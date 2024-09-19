@@ -6,7 +6,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Current Battery Level: {batteryLevel}</Text>
+      <Text>Current Battery Level: {batteryLevel.toPrecision(4)}%</Text>
     </View>
   );
 }
