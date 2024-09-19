@@ -1,67 +1,41 @@
-import { useVideoPlayer, VideoView } from 'expo-video';
-import { useEffect, useRef, useState } from 'react';
-import { PixelRatio, StyleSheet, View, Button } from 'react-native';
-
-const videoSource =
-  'https://youtu.be/GIhcL8K4shg?si=KO1R5FbLzUmFzBv4';
+import { useState, useRef } from 'react';
+import { View, StyleSheet, Button } from 'react-native';
+import { Video, ResizeMode } from 'expo-av';
 
 export default function VideoScreen() {
-  const ref = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const player = useVideoPlayer(videoSource, player => {
-    player.loop = true;
-    player.play();
-  });
-
-  useEffect(() => {
-    const subscription = player.addListener('playingChange', isPlaying => {
-      setIsPlaying(isPlaying);
-    });
-
-    return () => {
-      subscription.remove();
-    };
-  }, [player]);
-
+  const video = useRef(null);
+  const [status, setStatus] = useState({});
   return (
-    <View style={styles.contentContainer}>
-      <VideoView
-        ref={ref}
+    <View style={styles.container}>
+      <Video
+        ref={video}
         style={styles.video}
-        player={player}
-        allowsFullscreen
-        allowsPictureInPicture
+        source={{
+          uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+        }}
+        useNativeControls
+        resizeMode={ResizeMode.STRETCH}
+        isLooping
+        onPlaybackStatusUpdate={status => setStatus(() => status)}
       />
-      <View style={styles.controlsContainer}>
-        <Button
-          title={isPlaying ? 'Pause' : 'Play'}
-          onPress={() => {
-            if (isPlaying) {
-              player.pause();
-            } else {
-              player.play();
-            }
-            setIsPlaying(!isPlaying);
-          }}
-        />
-      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  contentContainer: {
+  container: {
     flex: 1,
-    padding: 10,
-    alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 50,
+    backgroundColor: '#ecf0f1',
   },
   video: {
-    width: 350,
-    height: 275,
+    alignSelf: 'center',
+    width: 320,
+    height: 200,
   },
-  controlsContainer: {
-    padding: 10,
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
