@@ -6,12 +6,14 @@ import { DetailsScreen } from "./Screens/Details";
 import { HomeScreen } from "./Screens/Home";
 import BatteryScreen from "./Screens/BatteryScreen";
 import DeviceInfo from "./Screens/DeviceInfoScreen";
+import VideoScreen from "./Screens/VideoScreen";
 
 export type RootStackParamList = {
   Home: undefined;
   Details: { id: string };
   Battery: undefined;
   DeviceInfo: undefined;
+  Video: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -25,6 +27,7 @@ export default function App() {
         {/* <RootStack.Screen name="Details" component={DetailsScreen} /> */}
         <RootStack.Screen name="Battery" component={BatteryScreen} />
         <RootStack.Screen name="DeviceInfo" component={DeviceInfo} />
+        <RootStack.Screen name="Video" component={VideoScreen} />
       </RootStack.Navigator>
     </NavigationContainer>
   );

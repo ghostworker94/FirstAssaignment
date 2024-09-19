@@ -17,6 +17,7 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
         title="Device Info"
         onPress={() => navigation.navigate("DeviceInfo")}
       />
+      <Button title="Video" onPress={() => navigation.navigate("Video")} />
     </View>
   );
 }
