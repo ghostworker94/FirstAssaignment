@@ -26,23 +26,21 @@ Projektets titel:
 #### First native experiance
 
 Beskrivning:
-Appen kan visa ditt batteri och model. Det finns en film som beskriver vad React native är. Slutligen en todo lista där man kan lägga till sina todos.
+Appen kan visa detaljer om din telefon. Det finns en film som beskriver vad React native är, en todo lista där man kan lägga till sina todos Och sist men inte minst Ring en Random(För dem modiga!) 🔥🔥🔥🔥
 
 Använda Expo -componenter:
 
 datetimepicker
-react-navigation/native
-react-navigation/native-stack
-expo-battery
-expo-device
-expo-status-bar
-expo-video
-expo-av
+battery
+device
+status-bar
+video
+av
 safe-area-context
 screens
-expo-linking
+linking
 masked-view
-expo-contacts
+contacts
 
 Använda RN-Componenter:
 View
