@@ -1,6 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Button, StatusBar, StyleSheet, Text, View } from "react-native";
 import { RootStackParamList } from "../App";
+import CallARandom from "../Components/CallARandom";
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
 
@@ -19,7 +20,8 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
         onPress={() => navigation.navigate("DeviceInfo")}
       />
       <Button title="Video" onPress={() => navigation.navigate("Video")} />
-      <Button title="Add Todo" onPress={() => navigation.navigate("Todo")}/>
+      <Button title="Add Todo" onPress={() => navigation.navigate("Todo")} />
+      <CallARandom/>
     </View>
   );
 }
