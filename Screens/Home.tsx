@@ -10,15 +10,10 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.textContainer}>Welcome👽</Text>
-      {/* <Button
-        title="Details"
-        onPress={() => navigation.navigate("Details", { id: "1" })}
-      /> */}
-      <Button title="Battery" onPress={() => navigation.navigate("Battery")} />
       <Button
-        title="Device Info"
-        onPress={() => navigation.navigate("DeviceInfo")}
-      />
+        title="Phone Details"
+        onPress={() => navigation.navigate("Details")}
+      /> 
       <Button title="Video" onPress={() => navigation.navigate("Video")} />
       <Button title="Add Todo" onPress={() => navigation.navigate("Todo")} />
       <CallARandom/>

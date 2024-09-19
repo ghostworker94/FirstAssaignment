@@ -1,20 +1,24 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StyleSheet, Text, View } from "react-native";
 import { RootStackParamList } from "../App";
+import { IpAddress } from "../Components/IpAdress";
+import DeviceInfo from "../Components/DeviceInfoScreen";
+import BatteryScreen from "../Components/BatteryScreen";
 
-type Props = NativeStackScreenProps<RootStackParamList, "Details">;
 
-export function DetailsScreen({ route }: Props) {
+export function DetailsScreen() {
   return (
     <View style={styles.container}>
-      <Text>{route.name} Screen</Text>
-      <Text>Id: {route.params.id}</Text>
+      <IpAddress />
+      <DeviceInfo />
+      <BatteryScreen />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    gap: 15,
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",

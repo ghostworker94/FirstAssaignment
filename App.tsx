@@ -3,14 +3,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import {HomeScreen} from './Screens/Home';
-import BatteryScreen from './Screens/BatteryScreen';
-import DeviceInfo from './Screens/DeviceInfoScreen';
+import BatteryScreen from './Components/BatteryScreen';
+import DeviceInfo from './Components/DeviceInfoScreen';
 import VideoScreen from './Screens/VideoScreen';
 import {TodoList} from './Screens/TodoList';
+import { DetailsScreen } from './Screens/Details';
 
 export type RootStackParamList = {
   Home: undefined;
-  Details: { id: string };
+  Details: undefined;
   Battery: undefined;
   DeviceInfo: undefined;
   Video: undefined;
@@ -25,7 +26,7 @@ export default function App() {
       <StatusBar style="auto" />
       <RootStack.Navigator initialRouteName="Home">
         <RootStack.Screen name="Home" component={HomeScreen} />
-        {/* <RootStack.Screen name="Details" component={DetailsScreen} /> */}
+        <RootStack.Screen name="Details" component={DetailsScreen} />
         <RootStack.Screen name="Battery" component={BatteryScreen} />
         <RootStack.Screen name="DeviceInfo" component={DeviceInfo} />
         <RootStack.Screen name="Video" component={VideoScreen} />
