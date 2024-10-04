@@ -1,5 +1,3 @@
-<!-- @format -->
-
 # Inlämning 1 - React Native
 
 I den här laborationen ska du individuellt skapa en nativ app med med hjälp av React
